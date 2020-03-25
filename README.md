@@ -18,7 +18,7 @@ Python で直接実行しても良いし, docker 経由で実行しても良い.
     ~~~bash
     $ docker-compose run --rm app aws configure
     ~~~
-1. ログをダウンロードする（JSON 形式の場合）
+1. ログをダウンロードする
     * JSON 形式の場合
         ~~~bash
         $ docker-compose run --rm app python downloadLogs.py ロググループ名 ログストリーム名 リージョン
