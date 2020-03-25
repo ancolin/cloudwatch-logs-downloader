@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    image: cloudwatch-logs-downloader
+    volumes:
+      - './.aws:/root/.aws'
+      - '.:/root/work'
