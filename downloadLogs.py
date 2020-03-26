@@ -34,7 +34,7 @@ try:
 
         # ログを JSON 形式でファイルに出力する
         base_dir = 'logs'
-        filename = log_group_name.split('/')[-1] + '-' + log_stream_name.split(']')[-1] + '.' + output_format
+        filename = log_group_name.split('/')[-1] + '-' + log_stream_name.split(']')[-1].split('/')[-1] + '.' + output_format
         if output_format == 'csv':
             u.outputCsv(base_dir, filename, events)
         elif output_format == 'json':
