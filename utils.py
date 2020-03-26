@@ -93,7 +93,10 @@ class Utils:
         string_logs = ''
 
         for d in content[self.key_events]:
-            string_logs += d[self.key_message]
+            if '\n$' in d[self.key_message]:
+                string_logs += d[self.key_message]
+            else:
+                string_logs += d[self.key_message] + '\n'
 
         if os.path.isdir(base_dir) is False:
             os.makedirs(base_dir)
