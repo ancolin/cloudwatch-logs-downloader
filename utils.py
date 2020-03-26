@@ -88,3 +88,14 @@ class Utils:
         with open(base_dir + '/' + filename, 'w') as f:
             writer = csv.writer(f, lineterminator='\n')
             writer.writerows(list_logs)
+
+    def outputText(self, base_dir, filename, content):
+        string_logs = ''
+
+        for d in content[self.key_events]:
+            string_logs += d[self.key_message]
+
+        if os.path.isdir(base_dir) is False:
+            os.makedirs(base_dir)
+        with open(base_dir + '/' + filename, 'w') as f:
+            f.write(string_logs)

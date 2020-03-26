@@ -13,7 +13,7 @@ try:
         print('#1 log group name. (ex. /aws/lambda/fooFunction)')
         print('#2 log stream name. (ex. 2020/03/25[$LATEST]foobar)')
         print('#3 region name. (ex. ap-northeast-1)')
-        print('#4 output format. default json. (ex. csv)')
+        print('#4 output format. default json. (format: json, csv, txt)')
     else:
         # ログの情報を取得する
         log_group_name = argv[1]
@@ -25,8 +25,8 @@ try:
         if len(argv) > 4:
             output_format = argv[4]
 
-        if output_format != 'json' and output_format != 'csv':
-            print('invalid output format. you can use json or csv. if not specified, use json.')
+        if output_format != 'json' and output_format != 'csv' and output_format != 'txt':
+            print('invalid output format. you can use json, csv or txt. if not specified, use json.')
             quit(1)
 
         # ログを取得する
@@ -39,6 +39,8 @@ try:
             u.outputCsv(base_dir, filename, events)
         elif output_format == 'json':
             u.outputJson(base_dir, filename, events)
+        elif output_format == 'txt':
+            u.outputText(base_dir, filename, events)
 
         print('output logs: ' + base_dir + '/' + filename)
 
