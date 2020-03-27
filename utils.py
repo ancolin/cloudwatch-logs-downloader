@@ -17,7 +17,7 @@ class Utils:
     key_ingestion_time = 'ingestionTime'
 
     def setFlgDebug(self, flg=False):
-        self.flg_debug = True
+        self.flg_debug = flg
 
     def log(self, m):
         if self.flg_debug is True:
